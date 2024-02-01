@@ -43,7 +43,7 @@ h4 {
     justify-content: center;
     text-align: center;
     z-index: 99;
-    display: none;
+    /* display: none; */
 }
 
 #loader h1 {
@@ -289,7 +289,6 @@ h1 {
     height: 40vw;
     overflow: hidden;
     margin: 10px;
-    /* object-fit: cover; */
 }
 
 .image img {
