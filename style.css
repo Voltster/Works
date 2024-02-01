@@ -1,0 +1,363 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: freight-big-pro-Light;
+    src: url("/assets/font/Freight\ Big\ Pro\ Light.otf");
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.hero,
+.project {
+    width: 100%;
+    height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 300;
+    letter-spacing: -.03em;
+    line-height: .72em;
+    font-family: "freight-big-pro-Light"
+}
+
+/* Loader */
+#loader {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    position: fixed;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 99;
+    display: none;
+}
+
+#loader h1 {
+    position: relative;
+    z-index: 9;
+}
+
+.yellowLoader1,
+.yellowLoader2 {
+    width: 100%;
+    height: 100vh;
+    background-color: #F5E41B;
+    position: absolute;
+}
+
+.yellowLoader1 {
+    z-index: 8;
+}
+
+.yellowLoader2 {
+    z-index: 7;
+}
+
+#loader video {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 6;
+    /* border: 2px solid red; */
+}
+
+/* Navbar */
+header {
+    position: absolute;
+    width: 100%;
+    /* height: 10vh; */
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 60px;
+}
+
+.core-logo path {
+    fill: black;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    pointer-events: auto;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+nav a {
+    display: inline-block;
+    padding-right: 2px;
+    color: #000;
+    /* color: #fff; */
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1.9rem;
+    letter-spacing: .03rem;
+    overflow: hidden;
+    user-select: none;
+    transition: color .3s, opacity .3s;
+    margin-left: 2rem;
+}
+
+
+/* Hero */
+.hero {
+    background-color: #F5E41B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    font-size: 7vw !important;
+}
+
+/* Projects */
+.project {
+    background-color: black;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.elem {
+    /* background-color: #F5E41B; */
+    width: 100%;
+    position: relative;
+    color: #FFFFFF;
+}
+
+.elem h2 {
+    font-size: 7vw;
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+    transition: all 0.8s ease-in-out;
+}
+
+.elem:hover h2 {
+    font-style: italic;
+    cursor: pointer;
+}
+
+.infiniteScroll {
+    background-color: #F5E41B;
+    white-space: nowrap;
+    padding: 6px 0;
+    position: absolute;
+    top: 30%;
+    transform: translate(0, -50%) scaleY(0.01);
+    opacity: 0;
+    z-index: 0;
+    transition: all 0.5s ease;
+}
+
+.elem:hover .infiniteScroll {
+    transform: scaleY(1);
+    opacity: 1;
+    overflow: hidden;
+
+}
+
+.blur {
+    background-color: #F5E41B;
+    filter: blur(5px) brightness(100%);
+    width: 30rem;
+    position: absolute;
+    left: 19%;
+    top: 50%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+}
+
+
+.elem .infiniteScroll .text {
+    display: inline-block;
+    color: #000;
+    white-space: nowrap;
+    animation: infiniteScroll 20s infinite linear;
+
+}
+
+.infiniteScroll h5 {
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 1rem;
+    display: inline;
+    margin: 0 35px;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: all 0.3s ease;
+    transition-delay: 0.2s;
+}
+
+.elem:hover .infiniteScroll h5 {
+    opacity: 1;
+}
+
+@keyframes infiniteScroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+
+
+/* Gallery */
+.gallery {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.imageConatiner {
+    padding: 30px;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #000;
+    opacity: 0;
+    transition: opacity .5s cubic-bezier(.23, 1, .32, 1);
+}
+
+.overlay p {
+    margin: 0 10px;
+    color: #FFFFFF;
+    font-size: 3.125rem;
+    font-family: "freight-big-pro-Light";
+    text-transform: uppercase;
+    line-height: .8em;
+    color: #fff;
+    text-shadow: 0 0 40px #000;
+
+}
+
+.image {
+    position: relative;
+    /* border: 2px solid red; */
+    width: 30vw;
+    height: 40vw;
+    overflow: hidden;
+    margin: 10px;
+    /* object-fit: cover; */
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .5s cubic-bezier(.23, 1, .32, 1);
+}
+
+.image:hover .overlay {
+    opacity: 1;
+}
+
+.image:hover img {
+    transform: scale(1.1);
+}
+/* bact to top */
+.backToTop{
+    width: 100vw;
+    height: 4rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:1rem 0 ;
+}
+
+.backToTop Button{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    width: 80%;
+    height: 50%;
+    margin: 0 auto;
+    /* border: 2px solid rebeccapurple; */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont;
+}
+
+
+/* Footer */
+footer {
+    background-color: black;
+    width: 100vw;
+}
+.footerDiv{
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer a {
+    color: #fff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    line-height: 1.9em;
+    user-select: none;
+    margin:0 10px;
+    /* transition: color .3s; */
+}
